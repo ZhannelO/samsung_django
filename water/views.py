@@ -47,3 +47,9 @@ def profile(request):
         return  render(request,"personal/profile.html")
     else:
         return redirect(reverse('signin'))
+def sleeptracker(request):
+    if request=="POST":
+        falling_asleep=request.POST.get("f_asleep_time")
+        waking_up=request.POST.get("getting_up")
+        messages.info(request,f"you will sleep {falling_asleep*60+waking_up} minutes")
+    return render(request, 'personal/sleeptracker.html')
