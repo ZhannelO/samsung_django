@@ -9,5 +9,6 @@ urlpatterns = [
     path('signup',views.signup, name="signup"), #register
     path('signin',views.signin, name="signin"), #login
     path('signout',views.signout, name="sign-out"), #log out
-    path('profile', views.profile, name='profile') # profile
+    path('profile', views.profile, name='profile'), # profile
+    path('sleep tracker', views.sleeptracker, name='sleep tracker')
 ]
