@@ -53,3 +53,11 @@ def sleeptracker(request):
         waking_up=request.POST.get("getting_up")
         messages.info(request,f"you will sleep {falling_asleep*60+waking_up} minutes")
     return render(request, 'personal/sleeptracker.html')
+
+
+def caloriestracker(request):
+    if request.method == "POST":
+        amount_of_calories = request.POST.get("amount of calories")
+        messages.info(request,f"{amount_of_calories} calories is not enough for you, darling")
+    return render(request, 'personal/caloriestracker.html')
+
