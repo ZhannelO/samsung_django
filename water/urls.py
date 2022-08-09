@@ -10,5 +10,6 @@ urlpatterns = [
     path('signin',views.signin, name="signin"), #login
     path('signout',views.signout, name="sign-out"), #log out
     path('profile', views.profile, name='profile'), # profile
-    path('sleep tracker', views.sleeptracker, name='sleep tracker')
+    path('sleep tracker', views.sleeptracker, name='sleep tracker'),
+    path('calories tracker', views.caloriestracker, name='calories tracker')
 ]
