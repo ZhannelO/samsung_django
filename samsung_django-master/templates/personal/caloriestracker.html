@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calories tracker</title>
+    {% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+</head>
+<body>
+<form action="/calories tracker" method="post">
+{% csrf_token %}
+<label for="calories">Amount of calories you eat per day:</label>
+<br>
+<input type="number" id="calories" name="calories">
+<button type="submit">Press to check if you eat well</button>
+</form>
+</body>
+</html>
