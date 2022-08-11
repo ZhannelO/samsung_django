@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Calories tracker</title>
-    {% if messages %}
-    {% for message in messages %}
-        {{ message }}
-    {% endfor %}
-{% endif %}
 </head>
 <body>
+<h2>How much do you eat?</h2>
 <form action="/calories tracker" method="post">
-{% csrf_token %}
-<label for="calories">Amount of calories you eat per day:</label>
-<br>
-<input type="number" id="calories" name="calories">
-<button type="submit">Press to check if you eat well</button>
+    {% csrf_token %}
+    {{ form.calories }}<br>
+    <button type="submit" class="btn btn-success">Press to check if you eat well</button>
 </form>
 </body>
 </html>
