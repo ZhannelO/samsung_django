@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 # Create your views here.
 from django.urls import reverse
-
+from .forms import CaloriesTrackerform
 
 def home_screen_view(request):
     print(request.headers)
@@ -86,7 +86,16 @@ def sleeptracker(request):
 
 def caloriestracker(request):
     if request.method == "POST":
-        amount_of_calories = request.POST.get("amount of calories")
-        messages.info(request,f"{amount_of_calories} calories is not enough for you, darling")
-    return render(request, 'personal/caloriestracker.html')
+        form = CaloriesTrackerform(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            error = 'Wrong input'
+    form = CaloriesTrackerform()
+    error = ''
+    contex = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'personal/caloriestracker.html', contex)
 
