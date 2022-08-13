@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Sleep tracker</title>
+     {% include 'snippets/head.html'%}
+</head>
+<body>
+<form action="/sleep tracker" method="post">
+{% csrf_token %}
+<label for="" >When do you fall asleep?</label>
+<br>
+<input type="time" id="f_asleep_time" name="f_asleep_time" placeholder="when do you go to sleep?" >
+<br>
+<label for="">When do you wake up?</label>
+<br>
+<input type="time" id="getting_up" name="getting_up" placeholder="when do you wake up?" >
+<br><h1>{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}</h1>
+<br>
+<button type="submit" class="btn btn-success">Press to check if you eat well</button>
+    </form>
+
+</body>
+</html>
