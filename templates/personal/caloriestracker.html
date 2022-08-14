@@ -9,11 +9,18 @@
 <h2>How much do you eat?</h2>
 <form action="/calories tracker" method="post">
     {% csrf_token %}
-    {{ form.calories }}
-    {{ form.username }}<br>
-    <button type="submit" class="btn btn-success">Press to check if you eat well</button>
+    {{ form.username }} <br>
+    {{ form.datetime }} <br>
+    {{ form.calories }}<br>
+    <button type="submit" class="btn btn-success">Submit</button>
 </form>
+<table class="table table-striped">
+    <thead>
+        <th> Day </th>
+        <th> Amount of calories </th>
+    </thead>
+</table>
+<tbody>
+</tbody>
 </body>
 </html>
-
-
