@@ -82,6 +82,7 @@ def sleeptracker(request):
 
 
 def caloriestracker(request):
+    calories = CalorieTracker.objects.filter(user=request.user)
     if request.method == "POST":
         form = CaloriesTrackerform(request.POST)
         if form.is_valid():
@@ -92,6 +93,20 @@ def caloriestracker(request):
     error = ''
     contex = {
         'form': form,
-        'error': error
+        'error': error,
+        'calories': calories
     }
     return render(request, 'personal/caloriestracker.html', contex)
+
+def delete_calorie_tracker(request):
+    context = {}
+    if 'cid' in request.GET:
+        cid = request.GET["cid"]
+        crd = get_object_or_404(CalorieTracker, id =cid)
+        context['calories'] = crd
+        if "action" in request.GET:
+            crd.delete()
+            context["status"] = str(crd.datetime) + ' Deleted successfully, go to homepage'
+            return HttpResponseRedirect('calories tracker')
+
+    return render(request, "personal/delete_calories_tracker.html", context)
