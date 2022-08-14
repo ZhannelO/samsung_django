@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calories tracker</title>
+       {% include 'snippets/head.html'%}
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Are you sure want to delete?</h4>
+                    <a href="{% url 'delete_calories_tracker' %}?cid={{calories.id}}&&action=confirm" hreflang="calories tracker" class="btn btn-danger">Delete</a>
+                    <a href="calories tracker" class="btn btn-warning">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
