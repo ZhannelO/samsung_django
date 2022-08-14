@@ -95,4 +95,3 @@ def caloriestracker(request):
         'error': error
     }
     return render(request, 'personal/caloriestracker.html', contex)
-
