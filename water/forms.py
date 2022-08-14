@@ -5,18 +5,18 @@ from django.forms import ModelForm, TextInput, DateInput
 class CaloriesTrackerform(ModelForm):
     class Meta:
         model = CalorieTracker
-        fields = ["username", "calories", 'datetime']
+        fields = ['user', "calories", 'datetime']
         widgets = {
             'calories': TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Amount of calories'
             }),
-            "username": TextInput(attrs={
+            "user": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Username'
             }),
             "datetime": DateInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Date'
-            }),
+                'placeholder': 'Date (year-month-day) ',
+            }, format='%Y-%m-%d')
         }
