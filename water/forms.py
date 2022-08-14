@@ -5,7 +5,7 @@ from django.forms import ModelForm, TextInput, DateInput
 class CaloriesTrackerform(ModelForm):
     class Meta:
         model = CalorieTracker
-        fields = ['username', "calories", 'datetime']
+        fields = ['user', "calories", 'datetime']
         widgets = {
             'calories': TextInput(attrs={
                 'class': 'form-control',
